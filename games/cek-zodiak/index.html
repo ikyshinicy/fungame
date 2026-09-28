@@ -16,31 +16,70 @@
         <span class="logo-mark">Fun<span>Lab</span></span>
         <span class="logo-tagline">Mini Game Seru<br>Untuk Semua</span>
       </a>
-      <button class="theme-toggle" aria-label="Ganti tema">☀️</button>
+      <button class="theme-toggle" type="button" aria-label="Ganti tema"></button>
     </div>
   </header>
 
   <section class="game-page-hero">
     <div class="container">
-      <a href="../../index.html" class="back-link">← Kembali ke Beranda</a>
-      <div class="icon-box" style="--cat-bg: var(--purple-100)">♈</div>
+      <a href="../../index.html" class="back-link"><i data-icon="arrow-left"></i> Kembali ke Beranda</a>
+      <div class="icon-box" style="--cat-bg: var(--purple-100)"><i data-icon="z-libra"></i></div>
       <h1>Cek Zodiak</h1>
-      <p>Lihat zodiak dan karakter kamu berdasarkan tanggal lahir.</p>
+      <p>Masukkan tanggal lahirmu dan lihat zodiak serta ramalan positifmu.</p>
     </div>
   </section>
 
   <section class="section" style="padding-top: 0;">
     <div class="container">
       <div class="game-panel">
-        <!--
-          TODO (Iky): Bangun logika & UI game "Cek Zodiak" di sini.
-          Elemen di bawah ini hanya placeholder tampilan.
-        -->
-        <div class="coming-soon">
-          <div class="img-placeholder" data-asset="icon-cek-zodiak" style="--ph-color: var(--purple-100)">♈</div>
-          <h2>Segera Hadir</h2>
-          <p>Game ini sedang dalam pengembangan. Ganti bagian ini dengan konten &amp; interaksi "Cek Zodiak".</p>
-        </div>
+
+        <form id="form" class="date-form" novalidate>
+          <div class="form-field">
+            <label for="day">Tanggal Lahir</label>
+            <select class="select" id="day"></select>
+          </div>
+          <div class="form-field">
+            <label for="month">Bulan</label>
+            <select class="select" id="month"></select>
+          </div>
+          <div class="form-field">
+            <label for="year">Tahun Lahir</label>
+            <select class="select" id="year"></select>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block"><i data-icon="sparkles"></i> Lihat Zodiak</button>
+        </form>
+
+        <p class="form-error" id="error" role="alert" hidden></p>
+
+        <section id="result" class="zodiac-result" hidden aria-live="polite">
+          <div class="z-hero">
+            <div class="z-symbol" id="symbol"></div>
+            <div class="z-name" id="zodiac"></div>
+            <div class="z-period" id="period"></div>
+            <div class="z-meta">
+              <div class="pill" id="element"></div>
+              <div class="pill"><i data-icon="calendar"></i> <span id="birth"></span></div>
+            </div>
+          </div>
+
+          <div class="z-grid">
+            <div class="z-box"><div class="z-box-title"><i data-icon="wallet"></i> Keuangan</div><p id="money"></p></div>
+            <div class="z-box"><div class="z-box-title"><i data-icon="heart"></i> Percintaan</div><p id="love"></p></div>
+            <div class="z-box"><div class="z-box-title"><i data-icon="briefcase"></i> Karier</div><p id="career"></p></div>
+            <div class="z-box"><div class="z-box-title"><i data-icon="users"></i> Sosial</div><p id="social"></p></div>
+            <div class="z-box"><div class="z-box-title"><i data-icon="zap"></i> Energi</div><p id="energy"></p></div>
+            <div class="z-box"><div class="z-box-title"><i data-icon="star"></i> Peluang</div><p id="opportunity"></p></div>
+          </div>
+
+          <div class="lucky">
+            <div class="lucky-title"><i data-icon="sparkles"></i> Keberuntungan</div>
+            <div class="lucky-row">Angka: <strong id="number"></strong> &nbsp;•&nbsp; Warna: <strong id="color"></strong></div>
+          </div>
+
+          <p class="note">Ramalan ini dibuat untuk hiburan dan refleksi ringan, bukan prediksi pasti tentang masa depan.</p>
+          <button type="button" class="btn btn-secondary btn-block" id="reset" style="margin-top:16px"><i data-icon="rotate-ccw"></i> Cek Tanggal Lain</button>
+        </section>
+
       </div>
     </div>
   </section>
@@ -51,6 +90,7 @@
     </div>
   </footer>
 
+  <script src="../../assets/js/icons.js"></script>
   <script src="../../assets/js/main.js"></script>
   <script src="script.js"></script>
 </body>

@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Biro Jodoh — FunLab</title>
-  <meta name="description" content="Cek kecocokan nama dan tanggal lahir kalian.">
+  <meta name="description" content="Cek kecocokan nama dan tanggal lahir kalian!">
   <link rel="stylesheet" href="../../assets/css/style.css">
   <link rel="stylesheet" href="style.css">
 </head>
@@ -16,31 +16,98 @@
         <span class="logo-mark">Fun<span>Lab</span></span>
         <span class="logo-tagline">Mini Game Seru<br>Untuk Semua</span>
       </a>
-      <button class="theme-toggle" aria-label="Ganti tema">☀️</button>
+      <button class="theme-toggle" type="button" aria-label="Ganti tema"></button>
     </div>
   </header>
 
   <section class="game-page-hero">
     <div class="container">
-      <a href="../../index.html" class="back-link">← Kembali ke Beranda</a>
-      <div class="icon-box" style="--cat-bg: var(--coral-100)">💕</div>
+      <a href="../../index.html" class="back-link"><i data-icon="arrow-left"></i> Kembali ke Beranda</a>
+      <div class="icon-box" style="--cat-bg: var(--coral-100)"><i data-icon="heart"></i></div>
       <h1>Biro Jodoh</h1>
-      <p>Cek kecocokan nama dan tanggal lahir kalian.</p>
+      <p>Masukkan nama dan tanggal lahir. Biar rumus biro jodoh yang menentukan, cocok nggak si kalian?</p>
     </div>
   </section>
 
   <section class="section" style="padding-top: 0;">
     <div class="container">
       <div class="game-panel">
-        <!--
-          TODO (Iky): Bangun logika & UI game "Biro Jodoh" di sini.
-          Elemen di bawah ini hanya placeholder tampilan.
-        -->
-        <div class="coming-soon">
-          <div class="img-placeholder" data-asset="icon-biro-jodoh" style="--ph-color: var(--coral-100)">💕</div>
-          <h2>Segera Hadir</h2>
-          <p>Game ini sedang dalam pengembangan. Ganti bagian ini dengan konten &amp; interaksi "Biro Jodoh".</p>
+
+        <div class="couple-grid">
+          <div class="person-form">
+            <div class="form-title"><i data-icon="user"></i> Orang Pertama</div>
+            <div class="form-field">
+              <label for="n1">Nama</label>
+              <input class="input" id="n1" placeholder="Contoh: Rizky" maxlength="40" autocomplete="off">
+            </div>
+            <div class="form-field">
+              <label for="d1">Tanggal lahir</label>
+              <input class="input" id="d1" type="date">
+            </div>
+          </div>
+
+          <div class="person-form">
+            <div class="form-title"><i data-icon="heart"></i> Orang Kedua</div>
+            <div class="form-field">
+              <label for="n2">Nama</label>
+              <input class="input" id="n2" placeholder="Contoh: Sinta" maxlength="40" autocomplete="off">
+            </div>
+            <div class="form-field">
+              <label for="d2">Tanggal lahir</label>
+              <input class="input" id="d2" type="date">
+            </div>
+          </div>
         </div>
+
+        <p class="form-error" id="error" role="alert" hidden></p>
+
+        <button class="btn btn-primary btn-block" id="go" type="button"><i data-icon="heart"></i> Hitung Kecocokan</button>
+        <p class="note">Untuk hiburan &amp; nostalgia, bukan prediksi ilmiah.</p>
+
+        <section id="result" hidden aria-live="polite">
+          <div class="names">
+            <span id="rn1"></span>
+            <span class="names-heart"><i data-icon="heart"></i></span>
+            <span id="rn2"></span>
+          </div>
+
+          <div class="score">
+            <small>TINGKAT KECOCOKAN</small>
+            <div class="score-num"><strong id="score">0</strong><span>%</span></div>
+            <div class="meter"><span class="meter-fill" id="bar"></span></div>
+          </div>
+
+          <div class="stats">
+            <div class="stat"><i data-icon="heart"></i><b id="a">0%</b><small>Chemistry</small></div>
+            <div class="stat"><i data-icon="message"></i><b id="b">0%</b><small>Komunikasi</small></div>
+            <div class="stat"><i data-icon="user"></i><b id="c">0%</b><small>Karakter</small></div>
+            <div class="stat"><i data-icon="star"></i><b id="d">0%</b><small>Hoki</small></div>
+          </div>
+
+          <div class="people">
+            <div class="person">
+              <div class="person-name" id="p1"></div>
+              <div class="person-meta">
+                <div><i data-icon="star"></i> Zodiak: <strong id="z1"></strong></div>
+                <div><i data-icon="paw"></i> Shio: <strong id="s1"></strong></div>
+                <div><i data-icon="sparkles"></i> Elemen: <strong id="e1"></strong></div>
+              </div>
+            </div>
+            <div class="person">
+              <div class="person-name" id="p2"></div>
+              <div class="person-meta">
+                <div><i data-icon="star"></i> Zodiak: <strong id="z2"></strong></div>
+                <div><i data-icon="paw"></i> Shio: <strong id="s2"></strong></div>
+                <div><i data-icon="sparkles"></i> Elemen: <strong id="e2"></strong></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="verdict"><span id="verdictIcon"></span><span id="v"></span></div>
+
+          <button class="btn btn-secondary btn-block" id="reset" type="button" style="margin-top:16px"><i data-icon="rotate-ccw"></i> Coba Lagi</button>
+        </section>
+
       </div>
     </div>
   </section>
@@ -51,6 +118,7 @@
     </div>
   </footer>
 
+  <script src="../../assets/js/icons.js"></script>
   <script src="../../assets/js/main.js"></script>
   <script src="script.js"></script>
 </body>

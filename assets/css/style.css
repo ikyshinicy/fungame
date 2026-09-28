@@ -89,18 +89,33 @@ button { font-family: var(--font-body); cursor: pointer; border: none; }
 }
 
 /* ---- Placeholder gambar ----
-   Ganti elemen ini dengan <img src="..."> begitu aset asli sudah ada.
-   Warna & ukuran bisa disesuaikan lewat --ph-color di inline style. */
+   Kotak kosong penanda tempat aset. Label kecil di bawah icon menunjukkan
+   nama aset (atribut data-asset). Ganti elemen ini dengan <img src="...">
+   begitu aset asli sudah ada. Warna diatur lewat --ph-color di inline style. */
 .img-placeholder {
   --ph-color: var(--purple-100);
   background: var(--ph-color);
   border-radius: var(--radius-md);
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 8px;
   color: var(--navy-800);
-  font-size: 2rem;
+  font-size: 2.2rem;
   overflow: hidden;
+  border: 1.5px dashed rgba(27, 42, 74, 0.22);
+}
+
+.img-placeholder .fl-icon { opacity: 0.4; }
+
+.img-placeholder::after {
+  content: attr(data-asset);
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  opacity: 0.55;
 }
 
 /* =========================================================
@@ -280,7 +295,7 @@ button { font-family: var(--font-body); cursor: pointer; border: none; }
   --ph-color: rgba(255,255,255,0.08);
   color: rgba(255,255,255,0.6);
   font-size: 3rem;
-  border: 1.5px dashed rgba(255,255,255,0.25);
+  border-color: rgba(255,255,255,0.25);
 }
 
 /* =========================================================
@@ -342,7 +357,7 @@ button { font-family: var(--font-body); cursor: pointer; border: none; }
 }
 
 @media (min-width: 1080px) {
-  .game-grid { grid-template-columns: repeat(6, 1fr); }
+  .game-grid { grid-template-columns: repeat(4, 1fr); }
 }
 
 .game-card {
@@ -490,7 +505,7 @@ button { font-family: var(--font-body); cursor: pointer; border: none; }
 
 /* =========================================================
    MODE GELAP
-   Diaktifkan lewat tombol ☀️/🌙 di header (lihat main.js)
+   Diaktifkan lewat tombol tema di header (lihat main.js)
    ========================================================= */
 
 body[data-theme="dark"] {
@@ -585,4 +600,158 @@ body[data-theme="dark"] h4 {
 .coming-soon p {
   color: var(--text-600);
   max-width: 42ch;
+}
+
+/* =========================================================
+   IKON (SVG inline — lihat assets/js/icons.js)
+   ========================================================= */
+
+[data-icon] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-style: normal;
+  line-height: 0;
+}
+
+.fl-icon {
+  width: 1em;
+  height: 1em;
+  flex-shrink: 0;
+}
+
+.main-nav a .fl-icon { font-size: 1.05rem; }
+
+.section-title .icon {
+  display: inline-flex;
+  font-size: 1.4rem;
+  color: var(--yellow-600);
+}
+
+.btn-primary .fl-icon,
+.btn-ghost .fl-icon { font-size: 1.1em; }
+
+.theme-toggle { color: var(--navy-800); }
+body[data-theme="dark"] .theme-toggle { color: var(--yellow-500); }
+
+.game-card .badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.game-card .arrow .fl-icon { font-size: 1rem; }
+.category-card .icon-box { color: var(--cat-color, var(--coral-500)); }
+.game-page-hero .icon-box { color: var(--navy-800); }
+.category-card .cat-arrow .fl-icon { font-size: 0.95rem; }
+
+.back-link .fl-icon { font-size: 1.1em; }
+
+@keyframes fl-spin { to { transform: rotate(360deg); } }
+
+/* =========================================================
+   KOMPONEN GAME (dipakai bersama oleh halaman /games/*)
+   ========================================================= */
+
+[hidden] { display: none !important; }
+
+button:focus-visible,
+a:focus-visible,
+.input:focus-visible,
+.select:focus-visible {
+  outline: 3px solid var(--purple-500);
+  outline-offset: 2px;
+}
+
+.form-field label {
+  display: block;
+  font-weight: 800;
+  font-size: 0.85rem;
+  color: var(--text-600);
+  margin-bottom: 6px;
+}
+
+.input,
+.select {
+  width: 100%;
+  padding: 13px 14px;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  color: var(--text-900);
+  font-family: var(--font-body);
+  font-size: 1rem;
+}
+
+.input::placeholder { color: var(--text-400); }
+
+.input:focus,
+.select:focus {
+  outline: none;
+  border-color: var(--purple-500);
+  box-shadow: 0 0 0 3px rgba(139, 127, 217, 0.25);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 26px;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1rem;
+  transition: transform 0.15s ease, filter 0.15s ease;
+}
+
+.btn .fl-icon { font-size: 1.15em; }
+.btn:hover:not(:disabled) { transform: translateY(-2px); }
+.btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.btn-block { width: 100%; }
+
+.btn-secondary {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  color: var(--text-900);
+}
+
+.form-error {
+  margin-top: 14px;
+  text-align: center;
+  font-weight: 800;
+  color: var(--coral-500);
+}
+
+.note {
+  text-align: center;
+  color: var(--text-400);
+  font-size: 0.82rem;
+  margin-top: 12px;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+  padding: 7px 14px;
+  font-weight: 800;
+  font-size: 0.85rem;
+}
+
+/* Kartu pastel di mode gelap: teks harus tetap gelap agar terbaca */
+body[data-theme="dark"] .game-card h3 { color: var(--navy-800); }
+body[data-theme="dark"] .game-card p { color: #4A5468; }
+body[data-theme="dark"] .coming-soon .img-placeholder { color: var(--navy-800); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

@@ -1,5 +1,6 @@
 // FunLab — main.js
-// Interaksi kecil untuk halaman utama: toggle mode gelap/terang.
+// Interaksi kecil untuk semua halaman: toggle mode gelap/terang.
+// Butuh icons.js dimuat lebih dulu.
 
 (function () {
   const toggleBtn = document.querySelector('.theme-toggle');
@@ -7,18 +8,28 @@
 
   const STORAGE_KEY = 'funlab-theme';
 
-  function applyTheme(theme) {
-    document.body.setAttribute('data-theme', theme);
-    toggleBtn.textContent = theme === 'dark' ? '🌙' : '☀️';
+  function readSaved() {
+    try { return localStorage.getItem(STORAGE_KEY) || 'light'; }
+    catch (e) { return 'light'; }
   }
 
-  const saved = localStorage.getItem(STORAGE_KEY) || 'light';
-  applyTheme(saved);
+  function save(theme) {
+    try { localStorage.setItem(STORAGE_KEY, theme); }
+    catch (e) { /* penyimpanan diblokir — abaikan */ }
+  }
+
+  function applyTheme(theme) {
+    document.body.setAttribute('data-theme', theme);
+    toggleBtn.innerHTML = window.FunIcon ? FunIcon.svg(theme === 'dark' ? 'moon' : 'sun') : '';
+    toggleBtn.setAttribute('aria-pressed', theme === 'dark' ? 'true' : 'false');
+  }
+
+  applyTheme(readSaved());
 
   toggleBtn.addEventListener('click', function () {
     const current = document.body.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
     const next = current === 'dark' ? 'light' : 'dark';
-    localStorage.setItem(STORAGE_KEY, next);
+    save(next);
     applyTheme(next);
   });
 })();

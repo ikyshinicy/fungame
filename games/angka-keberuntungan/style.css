@@ -1,3 +1,134 @@
 /* Angka Keberuntungan — style khusus game ini.
-   File global tetap dipakai dari /assets/css/style.css.
-   Tambahkan override atau komponen baru di bawah ini. */
+   File global tetap dipakai dari /assets/css/style.css. */
+
+.name-row { display: flex; gap: 12px; }
+.name-row .input { flex: 1; text-transform: uppercase; }
+
+/* ---- Loading ---- */
+.calc-loading { text-align: center; padding: 40px 16px 24px; }
+
+.calc-loading .spin { font-size: 3rem; color: var(--purple-500); }
+.calc-loading .spin .fl-icon { animation: fl-spin 1.2s linear infinite; }
+
+.loading-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.3rem;
+  margin: 12px 0 4px;
+  color: var(--text-900);
+}
+
+.loading-sub { color: var(--text-400); font-size: 0.85rem; font-weight: 700; }
+
+.progress {
+  height: 8px;
+  background: var(--border);
+  border-radius: var(--radius-pill);
+  max-width: 420px;
+  margin: 20px auto 0;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  width: 0;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--coral-500), var(--purple-500));
+  transition: width 0.5s ease;
+}
+
+/* ---- Hasil ---- */
+#result {
+  margin-top: 28px;
+  padding-top: 28px;
+  border-top: 1px dashed var(--border);
+}
+
+.lucky-name {
+  text-align: center;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.7rem;
+  color: var(--coral-500);
+  overflow-wrap: anywhere;
+}
+
+.lucky-number-box { text-align: center; padding: 20px; }
+
+.lucky-number-box small {
+  display: block;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: var(--text-400);
+  font-size: 0.75rem;
+}
+
+.lucky-number {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 6rem;
+  line-height: 1;
+  color: var(--purple-500);
+}
+
+.formula-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--text-900);
+  margin-bottom: 4px;
+}
+
+.formula-title .fl-icon { color: var(--purple-500); }
+
+.formula-step {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  margin: 10px 0;
+  background: var(--bg);
+  color: var(--text-900);
+}
+
+.formula-step b { color: var(--purple-500); }
+.formula-line { margin-top: 8px; overflow-wrap: anywhere; }
+.chain-arrow { display: inline-flex; vertical-align: middle; margin: 0 8px; color: var(--text-400); }
+
+.letters { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+
+.letter {
+  min-width: 44px;
+  padding: 8px 10px;
+  text-align: center;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--surface);
+}
+
+.letter strong { display: block; font-family: var(--font-display); }
+.letter small { color: var(--text-400); font-weight: 700; }
+
+.meaning {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 16px;
+  padding: 18px;
+  border-radius: var(--radius-md);
+  background: var(--gold-100);
+  color: var(--navy-800);
+  font-weight: 800;
+  text-align: center;
+}
+
+.meaning .fl-icon { font-size: 1.5rem; color: var(--gold-500); }
+
+@media (max-width: 600px) {
+  .name-row { flex-direction: column; }
+  .game-panel { padding: 20px; }
+  .lucky-number { font-size: 4.5rem; }
+}

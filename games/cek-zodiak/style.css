@@ -1,3 +1,113 @@
 /* Cek Zodiak — style khusus game ini.
-   File global tetap dipakai dari /assets/css/style.css.
-   Tambahkan override atau komponen baru di bawah ini. */
+   File global tetap dipakai dari /assets/css/style.css. */
+
+.date-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1.2fr;
+  gap: 14px;
+}
+
+.date-form .btn { grid-column: 1 / -1; margin-top: 4px; }
+
+.zodiac-result {
+  margin-top: 28px;
+  padding-top: 28px;
+  border-top: 1px dashed var(--border);
+}
+
+.z-hero {
+  text-align: center;
+  padding: 32px 16px;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(135deg, var(--purple-100), var(--sky-100));
+  color: var(--navy-800);
+}
+
+.z-symbol {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.7);
+  color: var(--purple-500);
+  font-size: 3.4rem;
+}
+
+.z-name {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 2.2rem;
+  margin: 10px 0 2px;
+}
+
+.z-period { color: #5B6478; font-weight: 700; }
+
+.z-meta {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.z-meta .pill {
+  background: #fff;
+  color: var(--navy-800);
+  border-color: transparent;
+}
+
+.z-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-top: 18px;
+}
+
+.z-box {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 18px;
+  background: var(--surface);
+}
+
+.z-box-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.02rem;
+  color: var(--text-900);
+  margin-bottom: 8px;
+}
+
+.z-box-title .fl-icon { color: var(--purple-500); font-size: 1.2rem; }
+.z-box p { color: var(--text-600); font-size: 0.92rem; }
+
+.lucky {
+  margin-top: 18px;
+  padding: 20px;
+  border-radius: var(--radius-md);
+  background: var(--gold-100);
+  color: var(--navy-800);
+  text-align: center;
+}
+
+.lucky-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 800;
+  margin-bottom: 6px;
+}
+
+.lucky-row { font-weight: 700; }
+.lucky strong { font-family: var(--font-display); font-size: 1.3rem; }
+
+@media (max-width: 650px) {
+  .date-form,
+  .z-grid { grid-template-columns: 1fr; }
+  .game-panel { padding: 20px; }
+}

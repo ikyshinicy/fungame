@@ -1,8 +1,20 @@
 # FunLab
 
-Mini game seru untuk semua — kumpulan mini game & tools hiburan ringan (cek jodoh, zodiak, shio, ramalan, tes kepribadian, angka keberuntungan, dll).
+Mini game seru untuk semua — kumpulan mini game & tools hiburan ringan (cek jodoh, zodiak, shio, ramalan, tes kepribadian, angka keberuntungan, sulap angka, dll).
 
 Project ini static site murni: HTML, CSS, JS biasa. Tidak perlu install apa pun atau proses build — tinggal buka `index.html` di browser.
+
+## Status Game
+
+| Game | Folder | Status |
+|---|---|---|
+| Biro Jodoh | `games/biro-jodoh/` | Jadi |
+| Cek Zodiak | `games/cek-zodiak/` | Jadi |
+| Angka Keberuntungan (nama jadi angka) | `games/angka-keberuntungan/` | Jadi |
+| Sulap Angka (kalkulator + 3 sulap) | `games/sulap-angka/` | Jadi |
+| Cek Shio | `games/cek-shio/` | Segera hadir |
+| Ramalan Hari Ini | `games/ramalan-hari-ini/` | Segera hadir |
+| Tes Kepribadian | `games/tes-kepribadian/` | Segera hadir |
 
 ## Struktur Folder
 
@@ -10,17 +22,12 @@ Project ini static site murni: HTML, CSS, JS biasa. Tidak perlu install apa pun 
 funlab/
 ├── index.html                  → Halaman utama
 ├── assets/
-│   ├── css/style.css           → Style global (dipakai semua halaman)
-│   ├── js/main.js              → Script halaman utama (toggle tema, dll)
+│   ├── css/style.css           → Style global + komponen bersama (input, tombol, pill, dll)
+│   ├── js/icons.js             → Semua icon SVG (pengganti emoji)
+│   ├── js/main.js              → Toggle tema gelap/terang (dipakai semua halaman)
 │   └── images/placeholder/     → Taruh aset gambar asli di sini
 ├── games/
-│   ├── biro-jodoh/
-│   ├── cek-zodiak/
-│   ├── cek-shio/
-│   ├── ramalan-hari-ini/
-│   ├── tes-kepribadian/
-│   └── angka-keberuntungan/
-│       (masing-masing punya index.html + style.css + script.js sendiri)
+│   └── <nama-game>/            → index.html + style.css + script.js per game
 └── README.md
 ```
 
@@ -30,13 +37,23 @@ Setiap game berdiri sendiri di foldernya — bisa dikerjakan satu per satu tanpa
 
 Cukup buka `index.html` langsung di browser, atau pakai live server (mis. ekstensi "Live Server" di VS Code) supaya lebih nyaman saat development.
 
+## Icon (tanpa emoji)
+
+Semua icon adalah SVG inline yang didefinisikan di `assets/js/icons.js`. Warnanya mengikuti warna teks dan ukurannya mengikuti ukuran font, jadi otomatis ikut mode gelap/terang.
+
+- Di HTML: `<i data-icon="heart"></i>`
+- Di JS: `el.innerHTML = FunIcon.svg('heart');`
+- Menambah icon baru: tambahkan satu baris di objek `P` pada `icons.js` (viewBox 24x24, stroke, tanpa fill). Nama icon zodiak diawali `z-` (mis. `z-aries`).
+
 ## Mengganti Placeholder Gambar
 
-Semua ilustrasi/icon saat ini masih berupa kotak placeholder (`<div class="img-placeholder">`) dengan emoji. Untuk mengganti dengan aset asli:
+Semua ilustrasi masih berupa kotak kosong bergaris putus (`<div class="img-placeholder" data-asset="...">`). Nama aset yang diharapkan tertulis kecil di dalam kotaknya (mis. `icon-biro-jodoh`, `hero-banner`). Untuk mengganti dengan aset asli:
 
 1. Taruh file gambar di `assets/images/placeholder/` (atau bikin subfolder sendiri).
-2. Ganti `<div class="img-placeholder" data-asset="...">🎮</div>` dengan `<img src="assets/images/nama-file.png" alt="...">`.
+2. Ganti `<div class="img-placeholder" data-asset="icon-biro-jodoh">...</div>` dengan `<img src="assets/images/nama-file.png" alt="...">`.
 3. Hapus/sesuaikan style `.img-placeholder` di `style.css` kalau perlu.
+
+Daftar `data-asset` yang dipakai: `hero-banner`, `icon-biro-jodoh`, `icon-cek-zodiak`, `icon-cek-shio`, `icon-ramalan`, `icon-kepribadian`, `icon-angka`, `icon-sulap-angka`.
 
 ## Menambah Game Baru
 
@@ -44,9 +61,11 @@ Semua ilustrasi/icon saat ini masih berupa kotak placeholder (`<div class="img-p
 2. Sesuaikan isi `index.html` (judul, deskripsi, icon), lalu bangun logic-nya di `script.js` dan style tambahan di `style.css`.
 3. Tambahkan satu kartu baru di section **Game Populer** pada `index.html` (halaman utama), arahkan `href` ke folder game barunya.
 
+Komponen siap pakai di `style.css` global: `.input`, `.select`, `.btn` (+ `.btn-primary`, `.btn-secondary`, `.btn-block`), `.pill`, `.form-error`, `.note`.
+
 ## Kategori
 
-Kartu di section **Kategori Game** saat ini mengarah kembali ke section Game Populer (karena baru 6 game yang sudah dibangun). Kalau game per kategori sudah lengkap, kartu kategori bisa diarahkan ke halaman listing khusus per kategori.
+Kartu di section **Kategori Game** saat ini mengarah kembali ke section Game Populer. Angka jumlah game di tiap kategori masih angka contoh — sesuaikan setelah semua game lengkap. Kalau game per kategori sudah lengkap, kartu kategori bisa diarahkan ke halaman listing khusus per kategori.
 
 ## Deploy ke GitHub Pages (opsional)
 

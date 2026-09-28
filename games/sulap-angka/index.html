@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sulap Angka — FunLab</title>
+  <meta name="description" content="Ikuti hitungannya di kalkulator, lalu biarkan sulap angka membaca pikiranmu.">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <a href="../../index.html" class="logo">
+        <span class="logo-mark">Fun<span>Lab</span></span>
+        <span class="logo-tagline">Mini Game Seru<br>Untuk Semua</span>
+      </a>
+      <button class="theme-toggle" type="button" aria-label="Ganti tema"></button>
+    </div>
+  </header>
+
+  <section class="game-page-hero">
+    <div class="container">
+      <a href="../../index.html" class="back-link"><i data-icon="arrow-left"></i> Kembali ke Beranda</a>
+      <div class="icon-box" style="--cat-bg: var(--purple-100)"><i data-icon="wand"></i></div>
+      <h1>Sulap Angka</h1>
+      <p>Kalkulator di kiri hanya alat bantu. Permainan sebenarnya ada di kanan.</p>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top: 0;">
+    <div class="container">
+      <div class="magic-layout">
+
+        <!-- ============ KALKULATOR ============ -->
+        <aside class="calculator">
+          <div class="panel-title"><i data-icon="calculator"></i> Kalkulator</div>
+          <div class="calc-display" id="display" aria-live="polite">0</div>
+          <div class="keys">
+            <button type="button" data-key="C" class="danger" aria-label="Hapus semua">C</button>
+            <button type="button" data-key="back" aria-label="Hapus satu karakter"><i data-icon="delete"></i></button>
+            <button type="button" data-key="(">(</button>
+            <button type="button" data-key=")">)</button>
+
+            <button type="button" data-key="7">7</button>
+            <button type="button" data-key="8">8</button>
+            <button type="button" data-key="9">9</button>
+            <button type="button" data-key="/" aria-label="Bagi">÷</button>
+
+            <button type="button" data-key="4">4</button>
+            <button type="button" data-key="5">5</button>
+            <button type="button" data-key="6">6</button>
+            <button type="button" data-key="*" aria-label="Kali">×</button>
+
+            <button type="button" data-key="1">1</button>
+            <button type="button" data-key="2">2</button>
+            <button type="button" data-key="3">3</button>
+            <button type="button" data-key="-" aria-label="Kurang">−</button>
+
+            <button type="button" data-key="0" class="zero">0</button>
+            <button type="button" data-key=".">.</button>
+            <button type="button" data-key="+" aria-label="Tambah">+</button>
+            <button type="button" data-key="=" class="equal" aria-label="Sama dengan">=</button>
+          </div>
+          <p class="calc-note">Kalkulator berdiri sendiri. Game tidak membaca isi kalkulator secara otomatis.</p>
+        </aside>
+
+        <!-- ============ GAME ============ -->
+        <section class="magic">
+          <div class="magic-tabs" role="tablist" aria-label="Pilih sulap">
+            <button type="button" class="tab" role="tab" aria-selected="true" data-game="mind"><i data-icon="eye"></i> Baca Angka</button>
+            <button type="button" class="tab" role="tab" aria-selected="false" data-game="four"><i data-icon="hash"></i> Selalu Jadi 4</button>
+            <button type="button" class="tab" role="tab" aria-selected="false" data-game="birth"><i data-icon="calendar"></i> Tebak Tanggal</button>
+          </div>
+
+          <!-- ---- Game 1: Baca Angka ---- -->
+          <div id="mindGame" class="magic-card" role="tabpanel">
+            <span class="magic-tag">GAME 01</span>
+            <h2>Aku Tahu Angkamu</h2>
+            <p class="magic-lead">Pilih satu angka <strong>1–9</strong> dalam pikiranmu. Jangan beri tahu siapa pun.</p>
+
+            <div id="mindStep" class="step">
+              <div class="step-number">LANGKAH <span id="mindNum">1</span>/4</div>
+              <p class="step-text" id="mindInstruction"></p>
+              <div class="timer" id="mindTimer" role="timer">05</div>
+              <button type="button" id="mindDone" class="btn btn-primary" disabled>Sudah</button>
+            </div>
+
+            <div id="mindFinal" class="final-input" hidden>
+              <label for="mindAnswer">Sekarang masukkan hasil terakhir dari kalkulator:</label>
+              <input class="input" id="mindAnswer" type="number" inputmode="numeric" placeholder="Contoh: 70">
+              <button type="button" id="mindReveal" class="btn btn-primary btn-block"><i data-icon="eye"></i> Baca Angkaku</button>
+              <p class="secret-note">Jangan masukkan angka awalmu. Masukkan hanya hasil hitungan terakhir.</p>
+            </div>
+
+            <div id="mindResult" class="magic-result" hidden aria-live="polite">
+              <div class="result-label">SAYA TAHU ANGKAMU</div>
+              <div class="big" id="mindValue"></div>
+              <p id="mindExplain"></p>
+              <button type="button" id="mindReset" class="btn btn-secondary"><i data-icon="rotate-ccw"></i> Main Lagi</button>
+            </div>
+          </div>
+
+          <!-- ---- Game 2: Selalu Jadi 4 ---- -->
+          <div id="fourGame" class="magic-card" role="tabpanel" hidden>
+            <span class="magic-tag">GAME 02</span>
+            <h2>Selalu Jadi 4</h2>
+            <p class="magic-lead">Ikuti hitungan menggunakan kalkulator di kiri.</p>
+
+            <div id="fourStep" class="step">
+              <div class="step-number">LANGKAH <span id="fourNum">1</span>/4</div>
+              <p class="step-text" id="fourInstruction"></p>
+              <div class="timer" id="fourTimer" role="timer">05</div>
+              <button type="button" id="fourDone" class="btn btn-primary" disabled>Sudah</button>
+            </div>
+
+            <div id="fourResult" class="magic-result" hidden aria-live="polite">
+              <div class="result-label">HASIL SULAP</div>
+              <div class="big">4</div>
+              <p>Angka apa pun yang dipilih, hasil akhirnya selalu 4.</p>
+              <div class="formula-box">
+                Rumusnya: (2n + 8) ÷ 2 − n = n + 4 − n = <strong>4</strong>
+              </div>
+              <button type="button" id="fourReset" class="btn btn-secondary"><i data-icon="rotate-ccw"></i> Main Lagi</button>
+            </div>
+          </div>
+
+          <!-- ---- Game 3: Tebak Tanggal ---- -->
+          <div id="birthGame" class="magic-card" role="tabpanel" hidden>
+            <span class="magic-tag">GAME 03</span>
+            <h2>Tebak Tanggal Lahir</h2>
+            <p class="magic-lead">Ikuti rumus. Jangan masukkan tanggal lahirmu ke website.</p>
+
+            <div id="birthStep" class="step">
+              <div class="step-number">LANGKAH <span id="birthNum">1</span>/5</div>
+              <p class="step-text" id="birthInstruction"></p>
+              <div class="timer" id="birthTimer" role="timer">05</div>
+              <button type="button" id="birthDone" class="btn btn-primary" disabled>Sudah</button>
+            </div>
+
+            <div id="birthFinal" class="final-input" hidden>
+              <label for="birthAnswer">Masukkan hasil hitungan terakhir:</label>
+              <input class="input" id="birthAnswer" type="number" inputmode="numeric" placeholder="Contoh: 417">
+              <button type="button" id="birthReveal" class="btn btn-primary btn-block"><i data-icon="calendar"></i> Tebak Tanggal</button>
+            </div>
+
+            <div id="birthResult" class="magic-result" hidden aria-live="polite">
+              <div class="result-label">HASIL SULAP</div>
+              <div class="big" id="birthValue"></div>
+              <p id="birthExplain"></p>
+              <button type="button" id="birthReset" class="btn btn-secondary"><i data-icon="rotate-ccw"></i> Main Lagi</button>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2026 FunLab. Dibuat untuk hiburan ringan sehari-hari.</p>
+    </div>
+  </footer>
+
+  <script src="../../assets/js/icons.js"></script>
+  <script src="../../assets/js/main.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

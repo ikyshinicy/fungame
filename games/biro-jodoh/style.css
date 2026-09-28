@@ -1,3 +1,176 @@
 /* Biro Jodoh — style khusus game ini.
-   File global tetap dipakai dari /assets/css/style.css.
-   Tambahkan override atau komponen baru di bawah ini. */
+   File global tetap dipakai dari /assets/css/style.css. */
+
+.couple-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 8px;
+}
+
+.person-form {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.form-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--text-900);
+}
+
+.form-title .fl-icon { color: var(--coral-500); font-size: 1.3rem; }
+
+#go { margin-top: 18px; }
+
+#result {
+  margin-top: 28px;
+  padding-top: 28px;
+  border-top: 1px dashed var(--border);
+}
+
+.names {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  text-align: center;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(1.4rem, 4vw, 1.9rem);
+  color: var(--text-900);
+}
+
+.names-heart { display: inline-flex; color: var(--coral-500); font-size: 1.6rem; }
+
+.score { text-align: center; margin: 22px 0; }
+
+.score small {
+  display: block;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: var(--text-400);
+  font-size: 0.75rem;
+}
+
+.score-num {
+  font-family: var(--font-display);
+  font-weight: 800;
+  line-height: 1.1;
+  color: var(--coral-500);
+}
+
+.score-num strong { font-size: 4.5rem; }
+.score-num span { font-size: 2rem; }
+
+.meter {
+  height: 12px;
+  border-radius: var(--radius-pill);
+  background: var(--border);
+  max-width: 520px;
+  margin: 12px auto 0;
+  overflow: hidden;
+}
+
+.meter-fill {
+  display: block;
+  height: 100%;
+  width: 0;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--coral-500), var(--yellow-500), var(--green-500));
+  transition: width 0.9s ease;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.stat {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 14px 10px;
+  text-align: center;
+}
+
+.stat [data-icon] { color: var(--purple-500); font-size: 1.25rem; margin-bottom: 4px; }
+
+.stat b {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  color: var(--text-900);
+}
+
+.stat small { color: var(--text-600); font-weight: 700; }
+
+.people {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.person {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 16px;
+}
+
+.person-name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--text-900);
+  margin-bottom: 8px;
+  overflow-wrap: anywhere;
+}
+
+.person-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  color: var(--text-600);
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
+.person-meta > div { display: flex; align-items: center; gap: 8px; }
+.person-meta [data-icon] { color: var(--purple-500); }
+.person-meta strong { color: var(--text-900); }
+
+.verdict {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  text-align: center;
+  margin-top: 16px;
+  padding: 18px;
+  border-radius: var(--radius-md);
+  background: var(--gold-100);
+  color: var(--navy-800);
+  font-weight: 800;
+}
+
+.verdict [data-icon],
+.verdict #verdictIcon { font-size: 1.6rem; color: var(--gold-500); display: inline-flex; }
+
+@media (max-width: 650px) {
+  .couple-grid,
+  .people { grid-template-columns: 1fr; }
+  .stats { grid-template-columns: 1fr 1fr; }
+  .game-panel { padding: 20px; }
+}
