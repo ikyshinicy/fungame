@@ -536,16 +536,6 @@ body[data-theme="dark"] h4 {
   padding: 48px 0 32px;
 }
 
-.game-page-hero .back-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-weight: 700;
-  color: var(--text-600);
-  margin-bottom: 20px;
-  font-size: 0.92rem;
-}
-
 .game-page-hero .icon-box {
   width: 72px;
   height: 72px;
@@ -644,8 +634,6 @@ body[data-theme="dark"] .theme-toggle { color: var(--yellow-500); }
 .category-card .icon-box { color: var(--cat-color, var(--coral-500)); }
 .game-page-hero .icon-box { color: var(--navy-800); }
 .category-card .cat-arrow .fl-icon { font-size: 0.95rem; }
-
-.back-link .fl-icon { font-size: 1.1em; }
 
 @keyframes fl-spin { to { transform: rotate(360deg); } }
 

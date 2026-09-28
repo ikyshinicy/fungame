@@ -1,3 +1,162 @@
 /* Cek Shio — style khusus game ini.
-   File global tetap dipakai dari /assets/css/style.css.
-   Tambahkan override atau komponen baru di bawah ini. */
+   File global tetap dipakai dari /assets/css/style.css. */
+
+.date-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1.2fr;
+  gap: 14px;
+}
+
+.date-form .btn { grid-column: 1 / -1; margin-top: 4px; }
+
+.shio-result {
+  margin-top: 28px;
+  padding-top: 28px;
+  border-top: 1px dashed var(--border);
+}
+
+.s-hero {
+  text-align: center;
+  padding: 32px 16px;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(135deg, var(--peach-100), var(--gold-100));
+  color: var(--navy-800);
+}
+
+.s-symbol {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.7);
+  color: var(--peach-500);
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.s-name {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 2.2rem;
+  margin: 10px 0 2px;
+}
+
+.s-period { color: #5B6478; font-weight: 700; }
+
+.s-meta {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.s-meta .pill {
+  background: #fff;
+  color: var(--navy-800);
+  border-color: transparent;
+}
+
+.s-imlek {
+  max-width: 46ch;
+  margin: 14px auto 0;
+  font-size: 0.85rem;
+  color: #5B6478;
+}
+
+.s-aura {
+  margin-top: 18px;
+  padding: 20px;
+  border-radius: var(--radius-md);
+  background: var(--purple-100);
+  color: var(--navy-800);
+  text-align: center;
+}
+
+.s-aura-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 800;
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.s-aura-name {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.6rem;
+  margin: 4px 0 2px;
+}
+
+.s-aura p { color: #4A5468; }
+
+.s-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-top: 18px;
+}
+
+.s-box {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 18px;
+  background: var(--surface);
+}
+
+.s-box-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.02rem;
+  color: var(--text-900);
+  margin-bottom: 8px;
+}
+
+.s-box-title .fl-icon { color: var(--peach-500); font-size: 1.2rem; }
+.s-box p { color: var(--text-600); font-size: 0.92rem; }
+
+.s-lucky {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-top: 18px;
+}
+
+.s-lucky-item {
+  padding: 18px 14px;
+  border-radius: var(--radius-md);
+  background: var(--gold-100);
+  color: var(--navy-800);
+  text-align: center;
+}
+
+.s-lucky-item span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.s-lucky-item strong {
+  display: block;
+  margin-top: 6px;
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+}
+
+@media (max-width: 650px) {
+  .date-form,
+  .s-grid,
+  .s-lucky { grid-template-columns: 1fr; }
+  .game-panel { padding: 20px; }
+}

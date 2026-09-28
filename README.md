@@ -12,9 +12,9 @@ Project ini static site murni: HTML, CSS, JS biasa. Tidak perlu install apa pun 
 | Cek Zodiak | `games/cek-zodiak/` | Jadi |
 | Angka Keberuntungan (nama jadi angka) | `games/angka-keberuntungan/` | Jadi |
 | Sulap Angka (kalkulator + 3 sulap) | `games/sulap-angka/` | Jadi |
-| Cek Shio | `games/cek-shio/` | Segera hadir |
+| Cek Shio | `games/cek-shio/` | Jadi |
 | Ramalan Hari Ini | `games/ramalan-hari-ini/` | Segera hadir |
-| Tes Kepribadian | `games/tes-kepribadian/` | Segera hadir |
+| Siapa Kamu Jika Jadi Anime (folder: tes-kepribadian) | `games/tes-kepribadian/` | Jadi (analisis lokal, siap disambung ke backend AI) |
 
 ## Struktur Folder
 
@@ -62,6 +62,13 @@ Daftar `data-asset` yang dipakai: `hero-banner`, `icon-biro-jodoh`, `icon-cek-zo
 3. Tambahkan satu kartu baru di section **Game Populer** pada `index.html` (halaman utama), arahkan `href` ke folder game barunya.
 
 Komponen siap pakai di `style.css` global: `.input`, `.select`, `.btn` (+ `.btn-primary`, `.btn-secondary`, `.btn-block`), `.pill`, `.form-error`, `.note`.
+
+## Backend AI untuk "Siapa Kamu Jika Jadi Anime?" (opsional, nanti)
+
+Saat ini jawaban dianalisis lokal di `games/tes-kepribadian/script.js` (pencocokan kata kunci berbobot). Untuk memakai AI sungguhan, isi `API_URL` di bagian atas file itu. Kalau request gagal atau formatnya tidak sesuai, game otomatis kembali ke analisis lokal.
+
+- Request: `POST` JSON `{ "answers": ["...", "... (7 jawaban)"] }`
+- Response: `{ "character": "...", "anime": "...", "match": "87%", "traits": ["...", "..."], "reason": "...", "profile": "..." }`
 
 ## Kategori
 

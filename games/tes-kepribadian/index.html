@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tes Kepribadian — FunLab</title>
-  <meta name="description" content="Kenali sisi lain dari dirimu dengan tes sederhana.">
+  <title>Siapa Kamu Jika Jadi Anime? — FunLab</title>
+  <meta name="description" content="Jawab 7 pertanyaan dengan bahasamu sendiri dan temukan karakter anime yang paling mirip denganmu.">
   <link rel="stylesheet" href="../../assets/css/style.css">
   <link rel="stylesheet" href="style.css">
 </head>
@@ -22,25 +22,57 @@
 
   <section class="game-page-hero">
     <div class="container">
-      <a href="../../index.html" class="back-link"><i data-icon="arrow-left"></i> Kembali ke Beranda</a>
       <div class="icon-box" style="--cat-bg: var(--sky-100)"><i data-icon="smile"></i></div>
-      <h1>Tes Kepribadian</h1>
-      <p>Kenali sisi lain dari dirimu dengan tes sederhana.</p>
+      <h1>Siapa Kamu Jika Jadi Anime?</h1>
+      <p>Jawab dengan caramu sendiri, lalu lihat karakter anime yang paling mirip denganmu.</p>
     </div>
   </section>
 
   <section class="section" style="padding-top: 0;">
     <div class="container">
       <div class="game-panel">
-        <!--
-          TODO: Bangun logika &amp; UI game "Tes Kepribadian" di sini.
-          Elemen di bawah ini hanya placeholder tampilan.
-        -->
-        <div class="coming-soon">
-          <div class="img-placeholder" data-asset="icon-kepribadian" style="--ph-color: var(--sky-100)"><i data-icon="image"></i></div>
-          <h2>Segera Hadir</h2>
-          <p>Game ini sedang dalam pengembangan. Nantikan segera ya!</p>
-        </div>
+
+        <section id="quiz">
+          <div class="a-step" id="step"></div>
+          <div class="a-progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="progress">
+            <div class="a-bar" id="bar"></div>
+          </div>
+          <h2 class="a-question" id="question"></h2>
+          <textarea class="a-textarea" id="answer" rows="5" maxlength="600" aria-labelledby="question"></textarea>
+          <div class="a-actions">
+            <button type="button" class="btn btn-secondary" id="back"><i data-icon="arrow-left"></i> Kembali</button>
+            <button type="button" class="btn btn-primary" id="next" disabled>Lanjut</button>
+          </div>
+        </section>
+
+        <section id="loading" class="a-loading" hidden aria-live="polite">
+          <div class="a-loader" aria-hidden="true"></div>
+          <strong>Membaca jawabanmu...</strong>
+          <p>Mencari pola dari caramu menjawab, lalu mencocokkannya dengan karakter yang paling mirip.</p>
+        </section>
+
+        <section id="result" class="a-result" hidden aria-live="polite">
+          <div class="a-hero">
+            <div class="a-badge">Hasil Analisis</div>
+            <div class="a-character" id="character"></div>
+            <div class="a-anime" id="anime"></div>
+            <div class="a-match" id="match"></div>
+            <div class="a-traits" id="traits"></div>
+          </div>
+
+          <div class="a-box">
+            <div class="a-box-title"><i data-icon="sparkles"></i> Kenapa kamu cocok?</div>
+            <p id="reason"></p>
+          </div>
+          <div class="a-box">
+            <div class="a-box-title"><i data-icon="user"></i> Profil karaktermu</div>
+            <p id="profile"></p>
+          </div>
+
+          <p class="note">Hasil ini hanya hiburan berdasarkan pola jawabanmu. Kemiripan karakter bukan penilaian kepribadian profesional.</p>
+          <button type="button" class="btn btn-secondary btn-block" id="restart" style="margin-top:16px"><i data-icon="rotate-ccw"></i> Coba Lagi</button>
+        </section>
+
       </div>
     </div>
   </section>

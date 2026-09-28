@@ -1,3 +1,163 @@
-/* Tes Kepribadian — style khusus game ini.
-   File global tetap dipakai dari /assets/css/style.css.
-   Tambahkan override atau komponen baru di bawah ini. */
+/* Siapa Kamu Jika Jadi Anime? — style khusus game ini.
+   File global tetap dipakai dari /assets/css/style.css. */
+
+[hidden] { display: none !important; }
+
+.a-step {
+  font-weight: 800;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--purple-500);
+}
+
+.a-progress {
+  height: 8px;
+  margin: 10px 0 22px;
+  border-radius: var(--radius-pill);
+  background: var(--border);
+  overflow: hidden;
+}
+
+.a-bar {
+  height: 100%;
+  width: 0;
+  border-radius: var(--radius-pill);
+  background: var(--purple-500);
+  transition: width 0.3s ease;
+}
+
+.a-question {
+  font-size: 1.45rem;
+  line-height: 1.35;
+  margin-bottom: 16px;
+}
+
+.a-textarea {
+  width: 100%;
+  min-height: 150px;
+  padding: 13px 14px;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  color: var(--text-900);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.5;
+  resize: vertical;
+}
+
+.a-textarea::placeholder { color: var(--text-400); }
+
+.a-textarea:focus {
+  outline: none;
+  border-color: var(--purple-500);
+  box-shadow: 0 0 0 3px rgba(139, 127, 217, 0.25);
+}
+
+.a-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.a-actions .btn { flex: 1; }
+
+.a-loading {
+  text-align: center;
+  padding: 48px 12px;
+  color: var(--text-600);
+}
+
+.a-loading strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  color: var(--text-900);
+}
+
+.a-loading p { margin-top: 6px; }
+
+.a-loader {
+  width: 48px;
+  height: 48px;
+  margin: 0 auto 18px;
+  border: 5px solid var(--purple-100);
+  border-top-color: var(--purple-500);
+  border-radius: 50%;
+  animation: fl-spin 1s linear infinite;
+}
+
+.a-hero {
+  text-align: center;
+  padding: 32px 16px;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(135deg, var(--purple-100), var(--sky-100));
+  color: var(--navy-800);
+}
+
+.a-badge {
+  font-weight: 800;
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--purple-500);
+}
+
+.a-character {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 2.2rem;
+  margin: 8px 0 2px;
+}
+
+.a-anime { color: #5B6478; font-weight: 700; }
+
+.a-match {
+  margin-top: 14px;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.2rem;
+}
+
+.a-traits {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.a-traits .pill {
+  background: #fff;
+  color: var(--navy-800);
+  border-color: transparent;
+}
+
+.a-box {
+  margin-top: 18px;
+  padding: 18px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+}
+
+.a-box-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.02rem;
+  color: var(--text-900);
+}
+
+.a-box-title .fl-icon { color: var(--purple-500); font-size: 1.2rem; }
+.a-box p { color: var(--text-600); font-size: 0.95rem; }
+
+@media (max-width: 650px) {
+  .game-panel { padding: 20px; }
+  .a-question { font-size: 1.2rem; }
+  .a-character { font-size: 1.8rem; }
+}

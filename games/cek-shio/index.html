@@ -22,25 +22,71 @@
 
   <section class="game-page-hero">
     <div class="container">
-      <a href="../../index.html" class="back-link"><i data-icon="arrow-left"></i> Kembali ke Beranda</a>
       <div class="icon-box" style="--cat-bg: var(--peach-100)"><i data-icon="paw"></i></div>
       <h1>Cek Shio</h1>
-      <p>Cari tahu shio kamu dan arti keberuntungannya.</p>
+      <p>Masukkan tanggal lahirmu dan lihat shio, karakter, serta ramalan positifmu.</p>
     </div>
   </section>
 
   <section class="section" style="padding-top: 0;">
     <div class="container">
       <div class="game-panel">
-        <!--
-          TODO: Bangun logika &amp; UI game "Cek Shio" di sini.
-          Elemen di bawah ini hanya placeholder tampilan.
-        -->
-        <div class="coming-soon">
-          <div class="img-placeholder" data-asset="icon-cek-shio" style="--ph-color: var(--peach-100)"><i data-icon="image"></i></div>
-          <h2>Segera Hadir</h2>
-          <p>Game ini sedang dalam pengembangan. Nantikan segera ya!</p>
-        </div>
+
+        <form id="form" class="date-form" novalidate>
+          <div class="form-field">
+            <label for="day">Tanggal Lahir</label>
+            <select class="select" id="day"></select>
+          </div>
+          <div class="form-field">
+            <label for="month">Bulan</label>
+            <select class="select" id="month"></select>
+          </div>
+          <div class="form-field">
+            <label for="year">Tahun Lahir</label>
+            <select class="select" id="year"></select>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block"><i data-icon="sparkles"></i> Lihat Shio</button>
+        </form>
+
+        <p class="form-error" id="error" role="alert" hidden></p>
+
+        <section id="result" class="shio-result" hidden aria-live="polite">
+          <div class="s-hero">
+            <div class="s-symbol" id="symbol" lang="zh"></div>
+            <div class="s-name" id="shio"></div>
+            <div class="s-period" id="period"></div>
+            <div class="s-meta">
+              <div class="pill" id="element"></div>
+              <div class="pill"><i data-icon="calendar"></i> <span id="birth"></span></div>
+            </div>
+            <p class="s-imlek" id="imlek-note" hidden></p>
+          </div>
+
+          <div class="s-aura">
+            <div class="s-aura-title"><i data-icon="sparkles"></i> Aura Kamu</div>
+            <div class="s-aura-name" id="aura"></div>
+            <p id="auraMeaning"></p>
+          </div>
+
+          <div class="s-grid">
+            <div class="s-box"><div class="s-box-title"><i data-icon="wallet"></i> Keuangan</div><p id="money"></p></div>
+            <div class="s-box"><div class="s-box-title"><i data-icon="heart"></i> Percintaan</div><p id="love"></p></div>
+            <div class="s-box"><div class="s-box-title"><i data-icon="briefcase"></i> Karier</div><p id="career"></p></div>
+            <div class="s-box"><div class="s-box-title"><i data-icon="users"></i> Sosial</div><p id="social"></p></div>
+            <div class="s-box"><div class="s-box-title"><i data-icon="zap"></i> Energi</div><p id="energy"></p></div>
+            <div class="s-box"><div class="s-box-title"><i data-icon="star"></i> Peluang</div><p id="opportunity"></p></div>
+          </div>
+
+          <div class="s-lucky">
+            <div class="s-lucky-item"><span><i data-icon="paw"></i> Hewan Keberuntungan</span><strong id="luckyAnimal"></strong></div>
+            <div class="s-lucky-item"><span><i data-icon="hash"></i> Angka Keberuntungan</span><strong id="luckyNumber"></strong></div>
+            <div class="s-lucky-item"><span><i data-icon="sparkles"></i> Warna Keberuntungan</span><strong id="color"></strong></div>
+          </div>
+
+          <p class="note">Ramalan ini dibuat untuk hiburan dan refleksi ringan, bukan prediksi pasti tentang masa depan. Shio ditentukan berdasarkan tahun lahir dalam siklus 12 tahun.</p>
+          <button type="button" class="btn btn-secondary btn-block" id="reset" style="margin-top:16px"><i data-icon="rotate-ccw"></i> Cek Tahun Lain</button>
+        </section>
+
       </div>
     </div>
   </section>
