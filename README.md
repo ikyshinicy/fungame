@@ -59,7 +59,7 @@ Daftar `data-asset` yang dipakai: `icon-biro-jodoh`, `icon-cek-zodiak`, `icon-ce
 
 1. Duplikasi salah satu folder di `games/` (misalnya `games/cek-shio/`) → ganti nama foldernya sesuai game baru.
 2. Sesuaikan isi `index.html` (judul, deskripsi, icon), lalu bangun logic-nya di `script.js` dan style tambahan di `style.css`.
-3. Tambahkan satu kartu baru di section **Game Populer** pada `index.html` (halaman utama), arahkan `href` ke folder game barunya.
+3. Tambahkan satu kartu baru di `games.html` (halaman semua game), arahkan `href` ke folder game barunya. Kalau ingin tampil juga di **Game Populer** pada `index.html`, salin kartunya ke sana (maksimal 4).
 
 Komponen siap pakai di `style.css` global: `.input`, `.select`, `.btn` (+ `.btn-primary`, `.btn-secondary`, `.btn-block`), `.pill`, `.form-error`, `.note`.
 
@@ -69,10 +69,6 @@ Saat ini jawaban dianalisis lokal di `games/tes-kepribadian/script.js` (pencocok
 
 - Request: `POST` JSON `{ "answers": ["...", "... (7 jawaban)"] }`
 - Response: `{ "character": "...", "anime": "...", "match": "87%", "traits": ["...", "..."], "reason": "...", "profile": "..." }`
-
-## Kategori
-
-Kartu di section **Kategori Game** saat ini mengarah kembali ke section Game Populer. Angka jumlah game di tiap kategori masih angka contoh — sesuaikan setelah semua game lengkap. Kalau game per kategori sudah lengkap, kartu kategori bisa diarahkan ke halaman listing khusus per kategori.
 
 ## Deploy ke GitHub Pages (opsional)
 

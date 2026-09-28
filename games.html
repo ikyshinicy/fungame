@@ -3,13 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FunLab — Mini Game Seru Untuk Semua</title>
-  <meta name="description" content="Kumpulan mini game dan tools hiburan ringan: cek kecocokan jodoh, ramalan, zodiak, shio, tes kepribadian, sulap angka, dan banyak lagi.">
+  <title>Semua Game — FunLab</title>
+  <meta name="description" content="Daftar lengkap mini game FunLab: jodoh, zodiak, shio, ramalan, tes kepribadian, angka keberuntungan, dan sulap angka.">
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
 
-  <!-- ============ HEADER ============ -->
   <header class="site-header">
     <div class="container">
       <a href="index.html" class="logo">
@@ -18,8 +17,8 @@
       </a>
 
       <nav class="main-nav">
-        <a href="index.html" class="active"><i data-icon="home"></i> Beranda</a>
-        <a href="games.html"><i data-icon="gamepad"></i> Semua Game</a>
+        <a href="index.html"><i data-icon="home"></i> Beranda</a>
+        <a href="games.html" class="active"><i data-icon="gamepad"></i> Semua Game</a>
         <a href="about.html"><i data-icon="info"></i> Tentang</a>
       </nav>
 
@@ -27,27 +26,17 @@
     </div>
   </header>
 
-  <!-- ============ HERO ============ -->
-  <section class="hero">
-    <div class="container">
-      <h1 class="sr-only">Mainkan Mini Game Seru Kapan Saja, Gratis!</h1>
-      <div class="hero-visual">
-        <img class="hero-banner" src="assets/images/hero-banner.webp" width="2170" height="725" alt="FunLab — kumpulan mini game seru untuk semua" fetchpriority="high">
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ GAME POPULER ============ -->
-  <section class="section" id="game-populer">
+  <section class="section">
     <div class="container">
       <div class="section-head">
         <div>
-          <div class="section-title"><span class="icon"><i data-icon="star"></i></span> Game Populer</div>
-          <p class="section-sub">Yang paling banyak dimainkan minggu ini!</p>
+          <h1 class="section-title"><span class="icon"><i data-icon="gamepad"></i></span> Semua Game</h1>
+          <p class="section-sub">Pilih game yang ingin kamu mainkan!</p>
         </div>
       </div>
 
       <div class="game-grid">
+
         <a class="game-card" style="--card-bg: var(--coral-100)" href="games/biro-jodoh/index.html" target="_blank" rel="noopener">
           <span class="badge"><i data-icon="flame"></i> Terpopuler</span>
           <div class="img-placeholder" data-asset="icon-biro-jodoh" style="--ph-color: rgba(255,255,255,0.55)"><i data-icon="image"></i></div>
@@ -73,15 +62,29 @@
           <p>Lihat ramalan cinta, karir, keuangan, dan kesehatan kamu hari ini.</p>
         </a>
 
-      </div>
+        <a class="game-card" style="--card-bg: var(--sky-100)" href="games/tes-kepribadian/index.html" target="_blank" rel="noopener">
+          <div class="img-placeholder" data-asset="icon-kepribadian" style="--ph-color: rgba(255,255,255,0.55)"><i data-icon="image"></i></div>
+          <h3>Siapa Kamu Jika Jadi Anime? <span class="arrow"><i data-icon="arrow-right"></i></span></h3>
+          <p>Jawab 7 pertanyaan dan temukan karakter anime yang paling mirip denganmu.</p>
+        </a>
 
-      <div class="hero-cta" style="margin-top: 32px;">
-        <a href="games.html" class="btn-primary">Lihat Semua Game <i data-icon="arrow-right"></i></a>
+        <a class="game-card" style="--card-bg: var(--gold-100)" href="games/angka-keberuntungan/index.html" target="_blank" rel="noopener">
+          <div class="img-placeholder" data-asset="icon-angka" style="--ph-color: rgba(255,255,255,0.55)"><i data-icon="image"></i></div>
+          <h3>Angka Keberuntungan <span class="arrow"><i data-icon="arrow-right"></i></span></h3>
+          <p>Ubah namamu jadi angka dan temukan angka hoki kamu.</p>
+        </a>
+
+        <a class="game-card" style="--card-bg: var(--purple-100)" href="games/sulap-angka/index.html" target="_blank" rel="noopener">
+          <span class="badge"><i data-icon="sparkles"></i> Baru</span>
+          <div class="img-placeholder" data-asset="icon-sulap-angka" style="--ph-color: rgba(255,255,255,0.55)"><i data-icon="image"></i></div>
+          <h3>Sulap Angka <span class="arrow"><i data-icon="arrow-right"></i></span></h3>
+          <p>Ikuti hitungannya, lalu biarkan sulap angka membaca pikiranmu.</p>
+        </a>
+
       </div>
     </div>
   </section>
 
-  <!-- ============ FOOTER ============ -->
   <footer class="site-footer">
     <div class="container">
       <p>© 2026 FunLab. Dibuat untuk hiburan ringan sehari-hari.</p>
