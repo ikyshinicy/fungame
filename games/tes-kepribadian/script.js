@@ -10,8 +10,8 @@
 (function () {
   'use strict';
 
-  var API_URL = '';
-  var API_TIMEOUT_MS = 20000;
+  var API_URL = 'https://wzokcxnnalvrrvgclwfb.supabase.co/functions/v1/anime-personality';
+  var API_TIMEOUT_MS = 30000;
   var MIN_LOADING_MS = 1200;
 
   var QUESTIONS = [
