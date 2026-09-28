@@ -25,7 +25,7 @@ funlab/
 │   ├── css/style.css           → Style global + komponen bersama (input, tombol, pill, dll)
 │   ├── js/icons.js             → Semua icon SVG (pengganti emoji)
 │   ├── js/main.js              → Toggle tema gelap/terang (dipakai semua halaman)
-│   └── images/placeholder/     → Taruh aset gambar asli di sini
+│   └── images/                 → Aset gambar (hero-banner.webp = banner beranda); placeholder/ untuk aset lain
 ├── games/
 │   └── <nama-game>/            → index.html + style.css + script.js per game
 └── README.md
@@ -47,13 +47,13 @@ Semua icon adalah SVG inline yang didefinisikan di `assets/js/icons.js`. Warnany
 
 ## Mengganti Placeholder Gambar
 
-Semua ilustrasi masih berupa kotak kosong bergaris putus (`<div class="img-placeholder" data-asset="...">`). Nama aset yang diharapkan tertulis kecil di dalam kotaknya (mis. `icon-biro-jodoh`, `hero-banner`). Untuk mengganti dengan aset asli:
+Semua ilustrasi masih berupa kotak kosong bergaris putus (`<div class="img-placeholder" data-asset="...">`). Nama aset yang diharapkan tertulis kecil di dalam kotaknya (mis. `icon-biro-jodoh`). Untuk mengganti dengan aset asli:
 
 1. Taruh file gambar di `assets/images/placeholder/` (atau bikin subfolder sendiri).
 2. Ganti `<div class="img-placeholder" data-asset="icon-biro-jodoh">...</div>` dengan `<img src="assets/images/nama-file.png" alt="...">`.
 3. Hapus/sesuaikan style `.img-placeholder` di `style.css` kalau perlu.
 
-Daftar `data-asset` yang dipakai: `hero-banner`, `icon-biro-jodoh`, `icon-cek-zodiak`, `icon-cek-shio`, `icon-ramalan`, `icon-kepribadian`, `icon-angka`, `icon-sulap-angka`.
+Daftar `data-asset` yang dipakai: `icon-biro-jodoh`, `icon-cek-zodiak`, `icon-cek-shio`, `icon-ramalan`, `icon-kepribadian`, `icon-angka`, `icon-sulap-angka`.
 
 ## Menambah Game Baru
 
